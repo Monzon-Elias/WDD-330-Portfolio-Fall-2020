@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <input type="text" id="text" placeholder="type some text">
+        <button onclick="displayMe()">display</button>
+        <div id="output"></div>
+
+        <input type="text" id="text2" placeholder="type one number">
+        <button onclick="displayMe2()">add me</button>
+        <div id="output2"></div>
+
+        <button style="display: block; margin: 5px 0px;" onclick="addingFromBothInputs()">+</button>
+        <input type="text" id="text3" placeholder="type other number">
+        <div id="output3"></div>
+    </main>
+    <script>
+    //Step 1
+        function displayMe(){
+        const result = document.getElementById("output");
+        const input = document.getElementById("text").value;
+        result.innerHTML = "User typed this: " + input;
+    }
+
+    //Step 2
+    function displayMe2() {
+        const result = document.getElementById("output2");
+        const input = document.getElementById("text2").value;
+        var integer = parseInt(input);
+        if(Number.isInteger(integer)) {
+            result.innerHTML = "Sum = " + adding(integer);
+        } else {result.innerHTML = "Only numbers, please"}
+        
+    }
+
+    function adding(num) {
+        var sum = 0;
+    for(var i = 1; i <= num; i++) {
+        sum += i
+    }
+    return sum;
+}
+
+//Step 3
+function addingFromBothInputs(){
+    const input1 = document.getElementById("text2").value;
+    const input2 = document.getElementById("text3").value;
+    let firstInput = parseInt(input1);
+    let secondInput = parseInt(input2);
+    const result = document.getElementById("output3");
+    result.innerHTML = sumOfTwoValues(firstInput, secondInput);
+}
+
+function sumOfTwoValues(num1, num2){
+    let sum = num1 + num2;
+    return sum; 
+}
+    </script>
+    <!-- <script>
+        const colors = ["red", "blue", "green", "yellow", "orange"];
+        const adjectives = ["bold", "shy", "strong", "lazy", "round", "flat", "old"];
+        const nouns = ["bike", "cat", "plate", "computer", "student", "car", "house"];
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 123];
+        const ships = ["plane", "boat", "space ship", "ufo", "kite"];
+
+        colors.forEach(element => {
+            console.log(element);
+        }); // fat arrow functions remove the function keyword and in simple function it removes the return key word as well.
+        
+        // la manera antigua: colors.forEach(function(element){console.log(element);})
+
+        //map function
+        console.log(colors.map((el) => el + " opa!"));
+
+        // random numbers from 0 to 3.
+        console.log(Math.floor(Math.random() * 3) + 1); 
+    </script> -->
+</body>
+</html>
