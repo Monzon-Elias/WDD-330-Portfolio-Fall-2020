@@ -1,5 +1,6 @@
 //Change the body background with javaScript
-document.body.style.backgroundColor = "black";
+//document.body.style.backgroundColor = "black";
+
 //Creating the array that will generate a dynamic list of links to the different weeks notes
 
 const links = [
@@ -10,39 +11,37 @@ const links = [
     {
       label: "Week2 notes",
       url: "../Week 2/index.html"
+    },
+    {
+      label: "Week3 notes",
+      url: "../Week 3/index.html"
     }
   ]
 
-var parent = document.getElementById("links");
-
-function create(text, element) {
-    var para = document.createElement(element);
-    para.style.color = "white";
-    var node = document.createTextNode(text);
-    para.appendChild(node);
-    parent.appendChild(para);
-}
-
-function createElements(){
-  for(let i = 0; i <= links.length; i++) {
-    create(links[i].label, "li");
-    create(links[i].url, "a");
+function createListElementsWithLinksToTheEachWeekWork(){
+  var ol = document.getElementById("links");
+  for(var i = 0; i < links.length; i++) {
+    var li = document.createElement("li");
+    var a = document.createElement("a");
+    a.href = links[i].url;
+    var label = document.createTextNode(links[i].label);
+    a.appendChild(label);
+    li.appendChild(a);
+    ol.appendChild(li);
+    }
   }
-}
 
-function createAnchorElementsInsideLiElements() {
-  var liElement = document.getElementsByTagName("li");
-  var aElement = document.getElementsByTagName("a");
-  liElement.appendChild(aElement);
-}
-createLinks();
+  createListElementsWithLinksToTheEachWeekWork();   
 
-
-//document.getElementById("w1").innerHTML = links[0]["label"];
-//document.getElementById("w2").innerHTML = links[0]["url"];
-
-//Tengo q lograr q popule el array definiendo:
-// 1- links.length = cantidad de li elements
-// 2- tengo q tener un index.html dentro de cada carpeta "Week 1", "Week 2", etc.
-// 3- en la li par, debe haber un anchor element con la dirección de cada "url" 
-// correspondiente dentro del links array. 
+//NOTES
+//I create a function to dynamicaly create links to all this semester work,
+//inside the range of the links array, using links.length. I created li elements inside
+//an "ol" element which I store in a variable called "ol".
+//Then I create anchor elements that will be appended into the li elements, so they
+//become links to the different week folders.
+//I add href attribute to the anchor elements feeded with the url part of the links array.
+//I append the link array labels into the "a" elements, so I'll have them as the anchor text.
+//I append those anchor elements into the "li" elements, and the "li" elements into
+//it parent, the "ol" element.
+//I call the function.
+//Brother, is this a too detailed step by step explanation of what I did?
