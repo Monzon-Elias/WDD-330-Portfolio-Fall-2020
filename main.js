@@ -1,6 +1,7 @@
 //Change the body background with javaScript
 //document.body.style.backgroundColor = "black";
-
+//Change the body text alignment to center
+document.body.style.textAlign = "center";
 //Creating the array that will generate a dynamic list of links to the different weeks notes
 
 const links = [
