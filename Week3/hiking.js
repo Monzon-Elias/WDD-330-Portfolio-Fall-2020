@@ -35,9 +35,10 @@ const hike = [
 ];
 
 /* loop through array
-    foreach item create a new li element
-    create more elements to hold hike information
-    insert new element into the DOM
+    foreach item create a new li element to hold hike information
+    create a html template to dynamicaly receive the hike info.
+    passed as variables into the template,
+    then insert the template to each li element created
 */
 function renderHikeList(list) {
   const listElement = document.querySelector("#hikes");

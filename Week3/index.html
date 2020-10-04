@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3</title>
+</head>
+
+<body>
+    <h3>Brother Thompson dynamic DOM example</h3>
+    <p>From an array of hikes</p>
+    <ul>
+        <li> Loop through the array</li>
+        <li> Foreach item, create a new li element to hold hike information</li>
+        <li> Create a html template to dynamicaly receive the hike info. passed as variables into the template.</li>
+        <li> Insert the template to each li element created</li>
+        <li> Then, insert new element into the DOM</li>
+    </ul>
+    <a href="greatHikes.html">Hikes Web Site</a>
+
+    <h3>Week 3 Team Activity</h3>
+    <a href="arrayCardio.html">Week 3 Team Activity</a>
+
+    <h2>Objects</h2>
+    <div>
+        <div id="eform">
+            Name<br>
+            <input id="ename" type="text" name="fname" autofocus min="1" max="10" required><br>
+            Birth Year<br>
+            <input id="ebirth" type="number" name="birth" min="1954" max="2000" required><br>
+            Job<br>
+            <input id="ejob" type="text" name="fjob" min="1" max="15" required><br>
+            <!-- SUBMIT BUTTON -->
+            <input type="submit" name="createRow" value="Create Employee" onclick="dyTable()">
+        </div>
+        <br>
+        <div id="dytable"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

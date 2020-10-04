@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Array Cardio 💪</title>
+  </head>
+  <body>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+<ol>
+    <h4>Array.prototype.filter()</h4>
+   <li> Filter the list of inventors for those who were born in the 1500's</li>
+    <p>The callback function inside the filter method returns the elements that match the condition</p>
+
+    <h4>Array.prototype.map()</h4>
+    <li> Give us an array of the inventors' first and last names</li>
+    <p>A new array is formed according to the callback function inside the map method</p>
+
+    <h4>Array.prototype.sort()</h4>
+    <li> Sort the inventors by birthdate, oldest to youngest</li>
+    <p>It takes the result of the subtraction, if it gives " < 0 ", it places it first in the array, if it gives " > 0 ", it places it in the second possition of the array</p>
+    
+    <h4>Array.prototype.reduce()</h4>
+    <li> How many years did all the inventors live?</li>
+    <p>The method uses an accumulator and a current value. The result of the subtraction goes to the accumulator.</p>
+    <p> The accumulator must be initialized to 0 and 0 is added to the accumulator.</p>
+    <p>As happens here:</p>
+    <p> const arr = [1,2,3,4,5]</p>
+    <p>let sum = 0</p>
+    <p>for (let item of arr) {</p>
+      <p>  sum = sum + item</p>
+      <p>}</p>
+      <p>console.log("sum = " + sum)</p>
+
+    <h4>Array.prototype.sort()</h4>
+    <li> Sort the inventors by years lived</li>
+    <p>The inventor who has lived the least, passes as the 1st element of the array (see exercise 3)</p>
+    <br>
+
+    <li> Create a list of Boulevards in Paris that contain 'de' anywhere in the name
+    https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
+    const category = document.querySelector('.mw-category');
+    const links = Array.from(category.querySelectorAll('a'));</li>
+
+     <h4>Sort Exercise</h4>
+     <li>Sort the people alphabetically by last name</li>
+
+    <h4>Reduce Exercise</h4>
+     <li>Sum up the instances of each of these</li>
+
+  </ol>
+    <script src="START.js"></script>
+  </body>
+</html>
