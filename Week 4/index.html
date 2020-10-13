@@ -1,0 +1,95 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Week 4 Home</title>
+</head>
+
+<body>
+    <h2>Team Activity</h2>
+    <article>
+        <blockquote>To create the game, we selected the <i class="pCode">board class</i>
+            <p>and the <i class="pCode">boardItem class </i>
+                with <i class="pCode">document.querySelector. </i>
+            <p>And created 2 functions:</p>
+            <p class="pCode"> function drawGame(event) {</p>
+            <p class="pCode"> event.target.innerHTML = player</p>
+            <p>"The target event property returns the element that triggered the event." (W3School)</p>
+            <p class="pCode"> if(player === player1) { </p> To switch players on each even listener triggering
+            <p class="pCode">player = player2</p>
+            <p class="pCode">} else {</p>
+            <p class="pCode">player = player1 }</p>
+            } <p>Then we used the event listener to call the function with a 'mouseup' event:</p>
+            <p>* 'mouseup' event is more appropiate for touch screen devices than the 'click' event</p>
+            <p class="pCode"> board.addEventListener("click", drawGame);</p>
+        </blockquote>
+
+        <div class="board">
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+            <div class="boardItem"></div>
+        </div>
+
+        <blockquote>
+            <p>The second function is relative to the reset button, and it clears out the board:</p>
+            <p class="pCode">function resetGame(){
+            <p class="pCode"> Array.from(board.children).forEach(box => {</p>
+            <p class="pCode">box.innerHTML = ''})</p>
+            <p class="pCode">};</p>
+            <p>To work with <i class="pCode">foreach</i> we need to transform the <i class="pCode"> board.children
+                </i>into an array</p>
+            <p> with the <i class="pCode"> Array.from</i> method, if not, it does not work.</p>
+            <p>Using a <i class="pCode">for</i> version of this function:</p>
+            <p class="pCode">function resetGame() {</p>
+            <p class="pCode"> for (const box of board.children) {</p>
+            <p class="pCode"> box.innerHTML = ''}</p>
+            <p class="pCode"> }</p>
+            <p>Now, the event listener:</p>
+            <p class="pCode">restart.addEventListener('mouseup', resetGame);</p>
+           <p>* <i class="pCode">restart</i> is the id of the button 'Restart Game'</p>
+        </blockquote>
+    </article>
+    <br>
+
+    <button id="restart">Reset Game</button>
+
+    <p>There are 9 divs (squares) of class <em>borderItem</em> inside a container div of class <em>board</em>,
+        with the following style:</p>
+    <blockquote> .board {
+        <p>display: grid;</p>
+        <p>grid-template-columns: repeat(3, 5rem);</p>
+        <p>grid-template-rows: repeat(3, 5rem);</p>
+        <p>justify-content: center;</p>
+        }
+    </blockquote>
+    <p>In the third and fourth line of the style box,
+        we created 3 rows and 3 columns of 5 rem of side to create the board,
+        and we set it at the center of the screen with <em>justify-content: center</em>.</p>
+    <p>We deleted the board perimeter borders using:</p>
+    <blockquote> .boardItem:nth-child(3n) {
+        <p>border-right: 0;</p>
+        <p>}</p>
+        <p>.boardItem:nth-child(1n) {</p>
+        <p>border-left: 0;</p>
+        <p>border-top: 0;</p>
+        <p>}</p>
+        <p>.boardItem:nth-child(n+7) {</p>
+        <p>border-bottom: 0;</p>
+        }
+    </blockquote>
+    <p>Using <em>(3n)</em> in the first and second line, we delete the right border of each box multiple of 3</p>
+    <p>Using <em>(1n)</em> in the fourth to sixth line, we deleted the left and top borders of the all boxes</p>
+    <p>Using <em>(n+7)</em> in the eighth and ninth line, we deleted all the bottom borders of each box after
+        the seventh box element.</p>
+</body>
+
+</html>
