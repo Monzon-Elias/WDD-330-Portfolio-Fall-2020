@@ -8,9 +8,10 @@ var Person = function (name, yearOfBirth, job) {
     this.yearOfBirth = yearOfBirth;
     this.job = job;
 }
-
-Person.prototype.calculateAge = function () { return 2018 - this.yearOfBirth };
-Person.prototype.yearsToRetire = function () { return 65 - (2018 - this.yearOfBirth) };
+var year = new Date().getFullYear();
+console.log(year);
+Person.prototype.calculateAge = function () { return year - this.yearOfBirth };
+Person.prototype.yearsToRetire = function () { return 65 - (year - this.yearOfBirth) };
 
 Person.prototype.funnyComment = function () {
     if (this.yearOfBirth > 1998) {

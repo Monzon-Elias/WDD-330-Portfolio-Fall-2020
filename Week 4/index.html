@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="script.js" defer></script>
     <title>Week 4 Home</title>
 </head>
@@ -55,7 +56,7 @@
             <p class="pCode"> }</p>
             <p>Now, the event listener:</p>
             <p class="pCode">restart.addEventListener('mouseup', resetGame);</p>
-           <p>* <i class="pCode">restart</i> is the id of the button 'Restart Game'</p>
+            <p>* <i class="pCode">restart</i> is the id of the button 'Restart Game'</p>
         </blockquote>
     </article>
     <br>
@@ -90,6 +91,36 @@
     <p>Using <em>(1n)</em> in the fourth to sixth line, we deleted the left and top borders of the all boxes</p>
     <p>Using <em>(n+7)</em> in the eighth and ninth line, we deleted all the bottom borders of each box after
         the seventh box element.</p>
+
+
+    <h2>Classes & Objects</h2>
+    <p>
+        In this section I create a new object, and add it to a table that already has three Person type objects.
+        The table will show after adding the new object.
+    </p>
+    <div>
+        <div id="eform">
+            Name<br>
+            <input id="name" type="text" name="name" autofocus min="1" max="10" required><br>
+            Birth Year<br>
+            <input id="birth" type="number" name="birth" min="1954" max="2000" required><br>
+            Job<br>
+            <input id="job" type="text" name="job" min="1" max="15" required><br>
+            <!-- SUBMIT BUTTON -->
+            <input id="createP" type="submit" name="createRow" value="Create Person">
+        </div>
+    </div>
+    <br>
+    <table class="w3-table w3-bordered">
+            <tr>
+                <th>Name</th>
+                <th>Birth Year</th>
+                <th>Job</th>
+                <th>Age</th>
+            </tr>
+        <tr id="person"></tr>
+    </table>
+
 </body>
 
 </html>
