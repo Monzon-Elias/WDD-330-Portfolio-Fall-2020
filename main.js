@@ -20,6 +20,10 @@ const links = [
     {
       label: "Week 4 notes",
       url: "https://monzon-elias.github.io/WDD-330-Portfolio-Fall-2020/Week%204/index.html"
+    },
+    {
+      label: "Week 5 notes",
+      url: "https://monzon-elias.github.io/WDD-330-Portfolio-Fall-2020/Week%205/index.html"
     }
   ]
 
