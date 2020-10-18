@@ -65,9 +65,9 @@ class Person {
     console.log(pyoB);
     pjob = document.getElementById("job").value;
     page = this.age();
-    peventL = Person.addEventListener();
+    peventL = addEventListener();
 
-    display.innerHTML = `
+    display.innerHTML += `
       <td>${pname}</td> 
       <td>${pyoB}</td> 
       <td>${pjob}</td>
