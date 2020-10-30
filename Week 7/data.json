@@ -1,0 +1,14 @@
+[
+    {
+        "name": "carriots",
+        "type": "vegetables"
+    },
+    {
+        "name": "apples",
+        "type": "fruit"
+    },
+    {
+        "name": "chocolate",
+        "type": "snack"
+    }
+]

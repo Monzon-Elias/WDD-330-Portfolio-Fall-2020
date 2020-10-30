@@ -7,5 +7,8 @@ export function saveToLS(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
 //retrieve todos from data store
-export function getFromLS(key) {}
+export function getFromLS(key) {
+    return JSON.parse(localStorage.getItem(key));
+
+}
 //set a listener
