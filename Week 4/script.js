@@ -1,5 +1,6 @@
+import { Person } from './person.js';
+
 const board = document.querySelector(".board");
-const board_item = document.querySelector(".boardItem");
 
 const player1 = "X";
 const player2 = "0";
@@ -34,32 +35,28 @@ restart.addEventListener('mouseup', resetGame);
 //=================================================================   
 //====================== OBJECTS & CLASSES ======================
 //=================================================================
-const year = new Date().getFullYear();
-const send = document.getElementById("createP");
-const display = document.getElementById('person');
+function display() {
 
-pname = document.getElementById("name").value;
-pyoB = document.getElementById("birth").value;
-pjob = document.getElementById("job").value;
+  let pname = document.getElementById("name").value;
+  let pyoB = document.getElementById("birth").value;
+  let pjob = document.getElementById("job").value;
 
-class Person {
-  constructor(name, yoB, job) {
-    this.name = name;
-    this.yoB = yoB;
-    this.job = job;
-  }
-
-  age() { return (year - this.yoB); }
-
-  displayOnScreen(newP) { display.innerHTML = newP; };
+  const newPerson = new Person(pname, pyoB, pjob);
+  createTable(newPerson);
 }
 
-newPerson = new Person(pname, pyoB, pjob);
-console.log(newPerson.name);
-newPerson.displayOnScreen(newPerson.name);
+function createTable(person) {
+  document.querySelector('#person').innerHTML += `
+<tr>
+  <td> ${person.name} </td>
+  <td> ${person.yoB} </td>
+  <td> ${person.job} </td>
+  <td> ${person.age()} </td>
+</tr>
+`;
+}
 
-
-
+document.querySelector('#createP').addEventListener('click', display);
 
 
 

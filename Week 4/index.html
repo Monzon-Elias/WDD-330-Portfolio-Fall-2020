@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script src="script.js" defer></script>
+    <script src="script.js" type="module" defer></script>
     <title>Week 4 Home</title>
 </head>
 
 <body>
     <h2>Team Activity</h2>
-    <article>
+    <br>
+    <div class="subContainer">
         <blockquote>To create the game, we selected the <i class="pCode">board class</i>
             <p>and the <i class="pCode">boardItem class </i>
                 with <i class="pCode">document.querySelector. </i>
@@ -58,7 +59,7 @@
             <p class="pCode">restart.addEventListener('mouseup', resetGame);</p>
             <p>* <i class="pCode">restart</i> is the id of the button 'Restart Game'</p>
         </blockquote>
-    </article>
+    </div>
     <br>
 
     <button id="restart">Reset Game</button>
@@ -92,14 +93,28 @@
     <p>Using <em>(n+7)</em> in the eighth and ninth line, we deleted all the bottom borders of each box after
         the seventh box element.</p>
 
-
     <h2>Classes & Objects</h2>
+
+    <h4>Notes about the Script</h4>
     <p>
-        In this section I create a new object, and add it to a table that already has three Person type objects.
-        The table will show after adding the new object.
-    </p>
-    <div>
-        <div id="eform">
+        In this section I create a class Person in a separete file, I instanciated it in the <i>script.js</i> file,
+        and add it to a dymanic table with a event listener that is triggered when the user clicks the button <i>Create
+            Person</i>.
+    <p>The <i>display()</i> function retrieves the data from the user,
+        and the <i>createTable()</i> function creates the dymanic table using the famous "` `" back tild technique</p>
+    <p>The table will show after adding the new object.</p>
+    
+    <h4>Notes about HTML & Style</h4>
+
+    <p>Just for convenience and curiosity, I borrowed the table and form style from W3School.</p>
+    <p>The table style comes from an external library <i>https://www.w3schools.com/w3css/4/w3.css"</i>, but the form
+        style is in my <i> style.css</i></p>
+    <p>Then I did put both form and table inside a container with <i>display: flex</i> and <i>justify-content: space-evenly</i>.</p>
+    <p><i>*There is no form tag wrapping the inputs & submit button to avoid the deletion of the table after submitting.</i></p>
+    
+    <div class="subContainer">
+        <div>
+
             Name<br>
             <input id="name" type="text" name="name" autofocus min="1" max="10" required><br>
             Birth Year<br>
@@ -107,19 +122,24 @@
             Job<br>
             <input id="job" type="text" name="job" min="1" max="15" required><br>
             <!-- SUBMIT BUTTON -->
-            <input id="createP" type="submit" name="createRow" value="Create Person" onclick="newPerson.displayOnScreen(newPerson)">
+            <input id="createP" type="submit" name="createRow" value="Create Person">
+
+        </div>
+        <div>
+            <table class="w3-table w3-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Birth Year</th>
+                        <th>Job</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody id="person">
+                </tbody>
+            </table>
         </div>
     </div>
-    <br>
-    <table class="w3-table w3-bordered">
-            <tr>
-                <th>Name</th>
-                <th>Birth Year</th>
-                <th>Job</th>
-                <th>Age</th>
-            </tr>
-        <tr id="person"></tr>
-    </table>
 
 </body>
 
