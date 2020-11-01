@@ -1,0 +1,9 @@
+body {
+    margin: 0 5vw;
+}
+.completed {
+    text-decoration: line-through;
+}
+ul {
+    list-style-type: none;
+}
