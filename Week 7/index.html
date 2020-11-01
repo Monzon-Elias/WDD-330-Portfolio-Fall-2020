@@ -10,10 +10,19 @@
 
 <body>
     <h1>Class activity</h1>
+    <p>
+        In class we practice some AJAX with the <i>fetch()</i> method. It "starts the process of fetching a 
+        resource from the network, returning a promise which is fulfilled once the response is available." 
+        (developer.mozilla.org). Because the <i>fetch()</i> method returns a promise, we use the<i>then()</i> method to
+        handle it asynchronous. The <i>fetch()</i> method is a modern way to do <i>XMLHttpRequest()</i> requests,
+        but is not a replacement.
+    </p>
+    <p>We did play retrieving data from a Pokemon API, and from a local JSON file.</p>
     <h2>Which Pokemon</h2>
     <input type="text" name="" id="whichOne">
     <button id="submitButton">Go!</button>
     <p id="pf"></p>
+
     <br>
     <hr>
     <br>
@@ -31,8 +40,16 @@
                 <img alt="current weather icon" id="cityIcon">
             </div>
             <p>
-                In this section I use AJAX for requestion JSON data from the Open Weather Map Web Site, using my own
-                Appi key. With JavaScript I display this info into this section, inclusive a nice weather icon.
+                In this section I use <i>async & await</i> (added to the ES2017 specification) functions, to request JSON data from the Open Weather Map API, using my own
+                Api key. Then I display this info into this section, inclusive a nice weather icon. 
+            </p>
+            <p>
+                I loved the <i>async & await</i> functions. The <i>async</i>keyword before the <i>function</i> keyword will
+                make my <i>getCityWeather()</i> function run in an asyncronous way. I added a <i>try-catch</i> to handle possible errors, 
+                which is recomended when working with promises. The <i>await</i>operator will ensure the next 
+                line of code is not executed until the <i>fetch</i>method returns a<i>response</i> object from 
+                the API. And because <i>fetch()</i> returns a promise, the <i>await</i> operator needs 
+                to precede it.
             </p>
         </div>
     </section>

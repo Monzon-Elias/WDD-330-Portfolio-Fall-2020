@@ -25,6 +25,7 @@ document.getElementById("submitButton").addEventListener("touchend", getPokemon)
 document.getElementById('whichOne').addEventListener('touchend', () =>{
     message.innerHTML = '';
 });
+
 function getFoods() {
     fetch("data.json").then(convertToJson).then((data) => console.log(data));
 }
