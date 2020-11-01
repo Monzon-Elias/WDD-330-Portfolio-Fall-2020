@@ -39,6 +39,7 @@ export function clearInputs() {
 }
 //display todos
 export function listTodos(todos) {
+    qs('#todoList').innerHTML = '';
     todos.forEach((todo) => {
         qs('#todoList').innerHTML +=
     `<li>
