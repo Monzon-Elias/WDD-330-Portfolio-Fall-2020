@@ -1,28 +1,44 @@
-const url = "https://pokeapi.co/api/v2/pokemon/";
-let message = document.getElementById("pf");
+//=================================================================   
+//========================= AJAX ==========================
+//=================================================================
 
-function convertToJson(res) {
-    console.log(res);
-    if (res.ok) {
-       message.innerHTML = "Pokemon found! =D";
-        return res.json();
-    } else { 
-        message.innerHTML = "Pokemon not found! =P"
-        throw new Error("Pokemon not found") }
-}
-function doStuff(data) {
-    console.log("first", data);
-}
-function getPokemon() {
-    const pokemonName = document.getElementById("whichOne").value;
-    fetch(url + pokemonName)
-        .then(convertToJson)
-        .then(doStuff).catch((error) => { console.log(error) });
-}
+const jasonSection = document.getElementById("weatherContainer");
+jasonSection.style.borderStyle = "solid";
+jasonSection.style.borderRadius = ".5rem";
+jasonSection.style.textAlign = "center";
 
-document.getElementById("submitButton").addEventListener("touchend", getPokemon);
+//CITY WEATHER TODAY
+const URL = "https://api.openweathermap.org/data/2.5/weather?q=Rexburg&units=imperial&APPID=2d683c1fb0de4088f43e9dc236bb0842";
 
-function getFoods() {
-    fetch("data.json").then(convertToJson).then((data) => console.log(data));
+async function getCityWeather() {
+    try {
+        const response = await fetch(URL);
+        const jsonData = await response.json();
+        console.log(jsonData);
+
+        let cityName = jsonData.name;
+        let cityforecast = jsonData.weather[0].description;
+        let cityTemp = jsonData.main.temp;
+        let cityWind = jsonData.wind.speed;
+        let cityIcon = jsonData.weather[0].icon;
+
+        //CITY NAME
+        document.getElementById("cityName").innerHTML = cityName;
+
+        //CITY FORECAST
+        document.getElementById("cityWeatherDesc").innerHTML = cityforecast;
+        
+        //CITY TEMP IN FAHRENHEIT
+        document.getElementById("cityTemp").innerHTML = cityTemp;
+
+        //CITY WIND SPEED IN MPH
+        document.getElementById("windSpeed").innerHTML = cityWind;
+
+        //CITY WEATHER ICON
+        document.getElementById("cityIcon").src = "https://openweathermap.org/img/wn/" + cityIcon + "@2x.png";
+
+    } catch (e) {
+        throw Error(e);
+    }
 }
-getFoods();
+getCityWeather();

@@ -1,14 +1,41 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="main.js" type="module"></script>
+    <script src="pokemon.js" type="module"></script>
 </head>
+
 <body>
-    <h1>Which Pokemon</h1>
+    <h1>Class activity</h1>
+    <h2>Which Pokemon</h2>
     <input type="text" name="" id="whichOne">
     <button id="submitButton">Go!</button>
     <p id="pf"></p>
+    <br>
+    <hr>
+    <br>
+
+    <section>
+        <div>
+            <h1>JSON AND AJAX!</h1>
+            <div id="weatherContainer">
+                <h2>Weather Summary</h2>
+                <h3 id="cityName"></h3>
+                <p>Forecast: <span id="cityWeatherDesc"></span></p>
+                <p>Wind Speed: <span id="windSpeed"></span> mph</p>
+                <p>Current temperature: <span id="cityTemp"></span>&deg;</p>
+                <p>Current Weather icon:</p>
+                <img alt="current weather icon" id="cityIcon">
+            </div>
+            <p>
+                In this section I use AJAX for requestion JSON data from the Open Weather Map Web Site, using my own
+                Appi key. With JavaScript I display this info into this section, inclusive a nice weather icon.
+            </p>
+        </div>
+    </section>
 </body>
+
 </html>
