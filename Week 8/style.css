@@ -1,0 +1,8 @@
+body {
+    color: aliceblue;
+    background: #000000
+  }
+main {
+    display: flex;
+    justify-content: space-evenly;
+}

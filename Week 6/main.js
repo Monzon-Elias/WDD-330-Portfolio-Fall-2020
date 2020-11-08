@@ -1,5 +1,5 @@
 import { saveToLS, getFromLS } from "./LS.js"
-import { qs, addNewTodo, listTodos, todoCompleted, inputChecked } from "./utilities.js";
+import { qs, addNewTodo, listTodos } from "./utilities.js";
 import { clearInputs } from "./view.js"
 
 
@@ -17,8 +17,5 @@ qs('#addT').addEventListener("click", () => {
     clearInputs();
 });
 
-let lala = document.getElementsByClassName('.complete');
-let lolo = [...lala];
-lolo.forEach(() => {console.log(lolo);})
 
 
