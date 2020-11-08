@@ -12,7 +12,7 @@ prevButton.addEventListener('click', () => {
     if(counter >= 9) counter = 9;
     counter = --counter; 
     console.log(counter);
-    let prev= "http://swapi.dev/api/people/?page=" + counter;
+    let prev= "https://swapi.dev/api/people/?page=" + counter;
     getPeople(prev);
 });
 
@@ -21,6 +21,6 @@ nextButton.addEventListener('click', () => {
     if(counter <= 0) counter = 1;
     counter = ++counter; 
     console.log(counter);
-    let next= "http://swapi.dev/api/people/?page=" + counter;
+    let next= "https://swapi.dev/api/people/?page=" + counter;
     getPeople(next);
 });
