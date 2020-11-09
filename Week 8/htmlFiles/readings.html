@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readings home page</title>
+    <script src="../scripts/readingsScript.js" defer></script>
+    <link rel="stylesheet" href="../styles/readingStyle.css">
+</head>
+
+<body>
+    <h1>Readings Exercises</h1>
+    <section id="animations">
+        <div>
+            <img class="dancer" src="../images/dancer.gif" alt="Fred Astaire hat and cane dancer">
+            <h2>ANIMATIONS</h2>
+            <button id="dancing" onclick="dance()"></button>
+            <p>Using two animations simultaneously, I put Fred to dance. An audio is missing. Press the
+                button to see/stop the dancing show. Through script, I was able to toggle two behaviors using the same
+                button, even the button text.</p>
+        </div>
+    </section>
+    <section id="transforms">
+        <div>
+            <div class="flipping-cards-container">
+                <!--THIS! -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"></div>
+                        <div class="flip-card-back">
+                            <h1>THIS!</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--IS!-->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"></div>
+                        <div class="flip-card-back">
+                            <h1>IS!</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!--SPARTA!-->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"></div>
+                        <div class="flip-card-back">
+                            <h1>SPARTA!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="leonidas-container">
+                <img src="../images/leonidas-roar.jpg" alt="Leonidas roar">
+            </div>
+            <h2>TRANSFORMS</h2>
+            <button onclick="flipping()">flip them!</button>
+            <p>
+                Using the scale and rotate transforms properties and animations, along with other specific features
+                related to the flipping card effect, I was able to bring to life an iconic movie phrase. <br>
+                Here we see a sequence of flipping cards that brings us a famous and glorious phrase in three parts. In
+                the end, we see the protagonist of the history giving us his best roar.
+            </p>
+
+        </div>
+    </section>
+</body>
+
+</html>
