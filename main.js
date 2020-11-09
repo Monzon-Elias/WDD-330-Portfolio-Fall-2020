@@ -34,7 +34,7 @@ const links = [
     },
     {
       label: "Week 8 notes",
-      url: "https://monzon-elias.github.io/WDD-330-Portfolio-Fall-2020/Week%208/index.html"
+      url: "https://monzon-elias.github.io/WDD-330-Portfolio-Fall-2020/Week%208/htmlFiles/index.html"
     }
   ]
 
