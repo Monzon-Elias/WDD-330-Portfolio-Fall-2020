@@ -49,6 +49,8 @@ function myTimeout3() {
     fb[2].firstElementChild.style.animation = "scaling .4s linear .2s backwards";
 }
 function myTimeout4() {
+    (fred.style.display == "none") ? leo[0].style.bottom = "200px" :
+    leo[0].style.bottom = "-25vh";
     leo[0].style.display = "block";
     leo[0].style.animation = "roar .1s linear both infinite";
 }

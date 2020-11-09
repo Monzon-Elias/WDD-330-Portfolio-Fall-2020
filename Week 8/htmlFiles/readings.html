@@ -15,9 +15,9 @@
             <img class="dancer" src="../images/dancer.gif" alt="Fred Astaire hat and cane dancer">
             <h2>ANIMATIONS</h2>
             <button id="dancing" onclick="dance()"></button>
-            <p>Using two animations simultaneously, I put Fred to dance. An audio is missing. Press the
-                button to see/stop the dancing show. Through script, I was able to toggle two behaviors using the same
-                button, even the button text.</p>
+            <p>I put Fred to dance using two animations simultaneously <i>setup</i> and <i>dance</i>. 
+                Press the button to see/stop the dancing show. Through script, I was able to toggle two behaviors using the same
+                button: start/stop the animation using <i>animationPlayState</i> property, and the button text.</p>
         </div>
     </section>
     <section id="transforms">
@@ -59,10 +59,11 @@
             <h2>TRANSFORMS</h2>
             <button onclick="flipping()">flip them!</button>
             <p>
-                Using the scale and rotate transforms properties and animations, along with other specific features
-                related to the flipping card effect, I was able to bring to life an iconic movie phrase. <br>
+                Using the <i>scale</i> and <i>rotateY</i> transforms properties, I trigger both the animations and the transforms in a sequence of <i>setTimeout</i> functions. 
+                The outcome is a flipping card effect for the three cards, followed by Leonidas roar animation. 
+                To do that, I <i>display: block;</i> the Leonidas roar image container, and trigger its corresponging animation keyframe <i>roar</i> (oscillating effect).<br>
                 Here we see a sequence of flipping cards that brings us a famous and glorious phrase in three parts. In
-                the end, we see the protagonist of the history giving us his best roar.
+                the end, we see the protagonist of the history roaring.
             </p>
 
         </div>
