@@ -3,9 +3,9 @@ class Comment {
         this.comments = [];
     }
 
-    addComment(hikeName, comment) { 
+    addComment(hikeId, comment) { 
         newComment = {
-        name: hikeName,
+        hikeId: hikeId,
         date: new Date(),
         content: comment
       };

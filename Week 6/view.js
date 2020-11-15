@@ -1,8 +1,8 @@
 import { qs } from "./utilities.js";
 
 //cross-out todo
-export function crossOutTodo() {
-    qs('li').classList.add('completed');
+export function crossOutTodo(el) {
+    return el.classList.add('completed');
 }
 
 //clear user input

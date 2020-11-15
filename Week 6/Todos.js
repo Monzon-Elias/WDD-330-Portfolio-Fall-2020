@@ -1,5 +1,6 @@
 export class Todo {
     constructor(todoDate, text, completed) {
+        this.id = Date.now(),
         this.todoDate = todoDate;
         this.text = text;
         this.completed = completed;

@@ -7,15 +7,16 @@ let todos = [];
 todos = getFromLS('todos');
 //console.log(todos);
 if (todos != null) listTodos(todos);
-todos = [];
+else todos = [];
 qs('#addT').addEventListener("click", () => {
     console.log("is working!");
-    addNewTodo(todos);
-    saveToLS('todos', todos);
-    //console.log(todos);
-    listTodos(todos);
-    clearInputs();
+    if (qs('#text').value.length > 0) {
+        addNewTodo(todos);
+        saveToLS('todos', todos);
+        //console.log(todos);
+        listTodos(todos);
+        clearInputs();
+    }
 });
-
 
 
