@@ -1,20 +1,17 @@
 import { Todo } from './Todos.js';
-import { crossOutTodo } from './view.js';
+import { crossOutTodo, qs } from './view.js';
 import { getFromLS, saveToLS } from './LS.js';
 
-//get list element
-export function qs(selector) {
-    return document.querySelector(selector);
-}
-
 //add new todo
-export function addNewTodo(todos) {
+export function addNewTodo() {
     const newTodo = new Todo();
     newTodo.todoDate = newTodo.date();
-    newTodo.text = qs('#text').value;
+    newTodo.text = qs('#todoText').value;
     newTodo.completed = false;
+    let todos = [];
+    todos = getFromLS('todos');
     todos.push(newTodo);
-    return todos;
+    saveToLS('todos', todos);
 }
 
 function inputChecked(e) {
@@ -30,53 +27,65 @@ function inputChecked(e) {
     //save to LS
     saveToLS('todos', todos);
     //list the todos
-    listTodos(todos);
+    listTodos();
 }
 
 function getDoneCount(todos) {
     let done = todos.filter((todoItem) => todoItem.completed == true);
     let unDone = todos.filter((todoItem) => todoItem.completed == false);
-    console.log(done.length);
+    //console.log(done.length);
     qs('#doneCount').innerHTML = `You have ${done.length} todos completed`;
     qs('#unDoneCount').innerHTML = `You have ${unDone.length} todos incompleted`;
 }
 
 function deleteTodo(e) {
     let todoId = e.target.id;
+    console.log(todoId);
     let todos = [];
     todos = getFromLS('todos');
     let todo = todos.find((todoItem) => todoItem.id == todoId);
     const index = todos.indexOf(todo);
+    console.log(index);
     todos.splice(index, 1);
     //save to LS
     saveToLS('todos', todos);
     //list the todos
-    listTodos(todos);
+    listTodos();
 }
 
-export function listTodos(todos) {
+export function listTodos() {
     // clear the table
     qs('#todoList').innerHTML = '';
     // add new li for each Todo item
+    let todos = [];
+    todos = getFromLS('todos');
     todos.forEach(
         (todo) => {
             let li = document.createElement('li');
-            let span = document.createElement('span');
+            //create input[type=checkbox] with attributes
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.setAttribute('value', todo.id);
+            //create span for the todo text
+            let text = document.createElement('span');
+            text.textContent = todo.text;
+            //create span for the todo date
+            let date = document.createElement('span');
+            date.textContent = todo.todoDate;
+            //add event listener for the checkbox
             checkbox.addEventListener('click', inputChecked);
+            //create img for the delete feature
             let trashIcon = document.createElement('img');
             trashIcon.id = todo.id;
             trashIcon.setAttribute('src', 'delete-24px.svg');
             trashIcon.addEventListener('click', deleteTodo);
             if (todo.completed) {
                 checkbox.checked = true;
-                crossOutTodo(li);
+                crossOutTodo(text);
             }
             li.appendChild(checkbox);
-            span.textContent = todo.text;
-            li.appendChild(span);
+            li.appendChild(text);
+            li.appendChild(date);
             li.appendChild(trashIcon);
             qs('#todoList').appendChild(li);
         }
