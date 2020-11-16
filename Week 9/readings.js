@@ -15,7 +15,7 @@ function createCanvas() {
     parent.appendChild(canvas);
 
     /*CREATING THE MOVIE*/
-
+ 
     let context = canvas.getContext("2d");
     let img = document.createElement("img");
     img.src = "https://raw.githubusercontent.com/Monzon-Elias/fluency-reports/master/images/horseMovieNewSize.jpg";
@@ -32,7 +32,7 @@ function createCanvas() {
         if (col == 3 && row == 2) { col = 0; row = 0; }
 
         context.drawImage(img, 0 - 290 * col, 0 - 320 * row)
-        setTimeout(() => { draw() }, 40)
+        setTimeout(() => { draw() }, 40);
     };
 }
 
