@@ -33,8 +33,11 @@ function inputChecked(e) {
 function getDoneCount(todos) {
     let done = todos.filter((todoItem) => todoItem.completed == true);
     let unDone = todos.filter((todoItem) => todoItem.completed == false);
-    //console.log(done.length);
+    (done.length > 1) ? 
+    qs('#doneCount').innerHTML = `You have ${done.length} todos completed` :
     qs('#doneCount').innerHTML = `You have ${done.length} todo completed`;
+    (unDone.length > 1) ?
+    qs('#unDoneCount').innerHTML = `You have ${unDone.length} todos incompleted`:
     qs('#unDoneCount').innerHTML = `You have ${unDone.length} todo incompleted`;
 }
 
