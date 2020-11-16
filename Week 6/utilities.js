@@ -34,8 +34,8 @@ function getDoneCount(todos) {
     let done = todos.filter((todoItem) => todoItem.completed == true);
     let unDone = todos.filter((todoItem) => todoItem.completed == false);
     //console.log(done.length);
-    qs('#doneCount').innerHTML = `You have ${done.length} todos completed`;
-    qs('#unDoneCount').innerHTML = `You have ${unDone.length} todos incompleted`;
+    qs('#doneCount').innerHTML = `You have ${done.length} todo completed`;
+    qs('#unDoneCount').innerHTML = `You have ${unDone.length} todo incompleted`;
 }
 
 function deleteTodo(e) {
