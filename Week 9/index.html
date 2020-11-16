@@ -1,10 +1,37 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 9 home page</title>
+    <script src="readings.js" defer></script>
 </head>
+
 <body>
-    <a href="./javascript30-drums/index-START.html">30 drums excercise</a>
+    <main>
+        <section>
+            <h2>Class Activity</h2>
+            <a href="./javascript30-drums/index-START.html">30 drums excercise</a>
+        </section>
+        <section>
+            <div>
+                <h1>HTML 5 CANVAS, AUDIO AND VIDEO</h1>
+                <button onclick="createCanvas()">Create a Canvas!</button>
+                <button onclick="createVideo()">Create a Video Tag!</button>
+                <button onclick="createAudio()">Create a Audio Tag!</button>
+                <div id="canvas"></div>
+                <p>
+                    The Canvas Object is new in HTML5. Canvas is a container for graphics in which, 
+                    through script, we can draw graphics. In this instance I've created an animated 
+                    frame to frame movie of a galloping horse.<br> 
+                    The Video element is a new HTML 5 tag. It has many properties accessible by DOM. 
+                    Here I have created a video element with basic controls and autoplay = true. <br>
+                    The Audio element is a new HTML 5 tag. It shares almost all the video tag properties. 
+                    Here I have added an audio tag with basic controls, with no autoplay.
+                </p>
+            </div>
+        </section>
+    </main>
 </body>
+
 </html>
