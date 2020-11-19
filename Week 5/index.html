@@ -5,18 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 5 home page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer type="module"></script>
+    <script src="main.js" defer></script>
 </head>
 
 <body>
-    <h2>Week 5 activity</h2>
-    <p>Here we "traslated" the original hikes web site code into a "classy" approach.
-        The methods (actions) are executed when an instance of the class is created
-        outside the class. This happens because previously, we set a call to the 
-       <i> showHikeList()</i> method inside the constructor of the Hikes class.</p>
-    <p>We also used one module to store the hikes array, and export it.
-        Then we imported it into our <i>hikes.js</i> file</p>
-        <a href="hikes.html">Hikes web site</a>
+    <main>
+        <section>
+            <h2>Week 5 activity</h2>
+            <p>Here we "traslated" the original hikes web site code into a "classy" approach.
+                The methods (actions) are executed when an instance of the class is created
+                outside the class. This happens because previously, we set a call to the
+                <i> showHikeList()</i> method inside the constructor of the Hikes class.</p>
+            <p>We also used one module to store the hikes array, and export it.
+                Then we imported it into our <i>hikes.js</i> file</p>
+            <a href="hikes.html">Hikes web site</a>
+        </section>
+        <section>
+            <h2>Reading activity</h2>
+            <p>This simple calculator was created to show runtime errors. Since simple arithmetic operations have strong
+                constraints,
+                I handle some possible errors with <i>try catch</i>, and display a customized error to the user,
+                and in the console for the developer.
+            </p>
+            <div class="wrapper">
+                <h2>Simple Calculator</h2>
+                <input id="num-one" name="num-one" type="text">
+                <input id="num-two" name="num-two" type="text"><br>
+                <br>
+                <input checked id="box1" name="sign-area" type="radio" value="add"><b>+</b>
+                <input id="box2" name="sign-area" type="radio" value="subtract"><b>-</b>
+                <input id="box3" name="sign-area" type="radio" value="multiply"><b>*</b>
+                <input id="box4" name="sign-area" type="radio" value="divide"><b>/</b><br>
+                <br>
+                <button onclick="outcome()" type="button">calculate</button>
+                <h1 id="resultArea"></h1>
+                <p id="errorMessage"></p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
