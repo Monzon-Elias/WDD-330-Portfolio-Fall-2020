@@ -13,16 +13,15 @@ function outcome() {
                 throw new Error('Impossible to divide by 0');
             }
         }
-        if (document.getElementById("box3").checked) {
+        if (document.getElementById("box3").checked)
             z = x * y;
-        }
-        if (document.getElementById("box2").checked) {
+        if (document.getElementById("box2").checked) 
             z = x - y;
-        }
-        if (document.getElementById("box1").checked) {
+        if (document.getElementById("box1").checked) 
             z = x + y;
-        }
         document.getElementById("resultArea").innerHTML = " Result : " + z;
+        errorMessage.innerHTML = '';
+
     } catch (error) {
         errorMessage.innerHTML = error;
         console.error('An error has occured:' + error);
