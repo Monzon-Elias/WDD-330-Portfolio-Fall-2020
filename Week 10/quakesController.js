@@ -29,9 +29,13 @@ export default class QuakesController {
     if (this.position.lat === 0) {
       try {
         // try to get the position using getLocation()
-        
         // if we get the location back then set the latitude and longitude into this.position
-        
+        const data = await getLocation();
+          console.log(data);
+          let latitude = data.coords.latitude;
+          let longitude = data.coords.longitude;
+          this.position.lat = latitude;
+          this.position.lon = longitude;
       } catch (error) {
         console.log(error);
       }
@@ -43,7 +47,7 @@ export default class QuakesController {
     //Notice it first goes out and requests the appropriate data from the model, 
     //then it passes it to the view to be rendered.
     //Set loading message
-    this.parentElement.innerHTML = 'Loading...';
+    this.parentElement.innerHTML = '<li>Loading...</li>';
     // get the list of quakes in the specified radius of the location
     const quakeList = await this.quakes.getEarthQuakesByRadius(
       this.position,
@@ -59,6 +63,7 @@ export default class QuakesController {
   async getQuakeDetails(quakeId) {
     // get the details for the quakeId provided from the model, 
     //then send them to the view to be displayed
-   
+    const quake = this.quakes.getQuakeById(quakeId);
+    this.quakesView.renderQuake(quake, this.parentElement);
   }
 }

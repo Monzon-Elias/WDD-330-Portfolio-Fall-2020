@@ -1,13 +1,34 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 10 home page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="main.js" type="module"></script>
+    <script src="main.js" defer></script>
 </head>
+
 <body>
-    <a href="geolocation.html">Earthquake Watch
-    </a>
+    <h1>Week 10 Readings</h1>
+    <h2>Quakes near you</h2>
+    <a href="geolocation.html">Earthquake Watch</a>
+
+    <h2>Form Validation</h2>
+    <form method="POST">
+        <fieldset>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="inputName" minlength="1" maxlength="30" required placeholder="Your name...">
+            <span id="nameErr"></span>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="inputEmail" minlength="1" maxlength="30" required placeholder="Your email...">
+            <span id="emailErr"></span>
+            <label for="pass">Password:</label>
+            <input type="password" name="pass" id="inputPass" minlength="4" maxlength="20" required placeholder="Your password...">
+            <span id="passErr"></span>
+            <input type="submit" id="sendB" value="Submit">
+        </fieldset>
+    </form>
+
 </body>
+
 </html>
