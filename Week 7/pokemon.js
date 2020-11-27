@@ -1,29 +1,40 @@
 const url = "https://pokeapi.co/api/v2/pokemon/";
+let whichPokemon = document.getElementById('whichOne');
 let message = document.getElementById("pf");
 
 function convertToJson(res) {
-    console.log(res);
     if (res.ok) {
-       message.innerHTML = "Pokemon found! =D";
         return res.json();
-    } else { 
-        message.innerHTML = "Pokemon not found! XP"
-        throw new Error("Pokemon not found") }
-}
-function doStuff(data) {
-    console.log("first", data);
-}
-function getPokemon() {
-    message.innerHTML = '';
-    const pokemonName = document.getElementById("whichOne").value;
-    fetch(url + pokemonName)
-        .then(convertToJson)
-        .then(doStuff).catch((error) => { console.log(error) });
+    } else {
+        throw new Error("Pokemon not found");
+    }
 }
 
-document.getElementById("submitButton").addEventListener("touchend", getPokemon);
-document.getElementById('whichOne').addEventListener('touchend', () =>{
-    message.innerHTML = '';
+function getPokemon(url) {
+    fetch(url)
+        .then(convertToJson)
+        .then((data) => {
+            let pokemons = [];
+            pokemons = data.results;
+            pokemons.map((poke) => {
+                let pokemonNames = pokemons[pokemons.indexOf(poke)].name;
+                console.log(pokemonNames);
+                let pokemonName = pokemonNames.filter(pn => pn == whichPokemon.value);
+                if(pokemonName == whichPokemon.value){
+                message.innerHTML = 'Pokemon found! =D';
+                } else message.innerHTML = 'Pokenom not found XP';    
+            });
+        })
+        .catch((error) => { throw new Error(error); });
+}
+
+document.getElementById("submitButton").addEventListener("click", () => {
+    console.log('it is working!');
+    getPokemon(url);
+});
+
+whichPokemon.addEventListener('touchend', (e) => {
+    e.target.innerHTML = '';
 });
 
 function getFoods() {

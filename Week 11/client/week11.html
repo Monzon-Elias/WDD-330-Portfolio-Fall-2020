@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 11 home page</title>
+    <script src="week11.js" type="module" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h2>Form</h2>
+    <form id="login">
+        <fieldset>
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="user1@email.com" id="username" minlength="1" maxlength="30" required placeholder="Your email...">
+            <span id="emailErr"></span>
+            <label for="pass">Password:</label>
+            <input type="password" name="pass" id="password" minlength="4" maxlength="20" required placeholder="Your password...">
+            <span id="passErr"></span>
+            <input type="submit" id="sendB" value="Submit">
+        </fieldset>
+    </form>
+
+</body>
+</html>
