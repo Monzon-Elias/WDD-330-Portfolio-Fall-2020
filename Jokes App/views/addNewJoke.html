@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokes App Add a New Category</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/otherPagesHeaderStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <script src="../scripts/controller/main.js" type="module" defer></script>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
                 <img src="images/clown.svg" alt="clown logo" onclick="window.location.href='mainPage.html'">
             </div>
             <!--App Title-->
-            <h1 class="title">Jokes App</h1>
+            <h2 class="title">Jokes App</h2>
             <div id="menu">
                 <img src="images/hamburger-menu-24px.svg" alt="hamburger menu">
             </div>
@@ -25,8 +27,8 @@
 
         <main>
             <div class="spacer"></div>
-            <input type="text" maxlength="200" minlength="5" placeholder="Your new joke..." required>
-            <button type="submit" onclick="window.location.href=''">Create Joke!</button>
+            <input id="addJokeInp" type="text" maxlength="200" minlength="5" placeholder="Your new joke..." required>
+            <button id="addJokeBtn" type="submit">Create Joke!</button>
         </main>
 
         <footer>

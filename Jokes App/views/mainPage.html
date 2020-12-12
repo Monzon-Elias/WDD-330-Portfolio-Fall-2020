@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokes App Main Page</title>
-    <script src="main.js" defer type="module"></script>
-    <link rel="stylesheet" href="../style.css">
+    <script src="../scripts/controller/main.js" defer type="module"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 
@@ -25,8 +25,8 @@
         </header>
         <main>
             <div class="spacer"></div>
-            <button type="button" onclick="window.location.href='searchOrSeeCategories.html'">Go to Jokes!</button>
-            <button type="button" onclick="window.location.href='newOrSelectCategory.html'">Add a Joke</button>
+            <a href="categories.html" id="goJokes" class="button"> Go to Jokes!</a>
+            <a href="categoriesAddMode.html" id="addJoke" class="button submit">Add a Joke</a>
         </main>
         <footer>
             <div>
