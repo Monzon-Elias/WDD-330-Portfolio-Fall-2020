@@ -1,11 +1,15 @@
-import { qs } from '../view/utilities.js'
+import { qs } from './utilities.js'
 import { getFromLS } from '../controller/LS.js'
+
 
 function getJokesByCategory() {
 let jokesOnCat = getFromLS('jokesOnCategory');
-console.log(jokesOnCat);
+let categories = getFromLS('categories');
+let catId = getFromLS('categoryId');
+console.log(catId);
+let catName = categories.find((cat) => cat.catId == catId);
 if(jokesOnCat.length < 1) { 
-    qs('#joke').innerHTML = 'No jokes in this category =(';
+    qs('#joke').innerHTML = `No jokes on -> ${catName.catName}`;
     qs('#goBack').innerHTML = '<a href="categoriesAddMode.html">go add some!</a>';
 }
     else qs('#joke').innerHTML = jokesOnCat[0].jokeText;

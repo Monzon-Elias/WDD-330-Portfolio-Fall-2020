@@ -9,10 +9,9 @@ export function addJokeCat() {
     cat.catName = qs('#addCatInp').value;
     let categories = [];
     categories = getFromLS('categories');
-    console.log(cat);
-    console.log(categories);
     categories.push(cat);
     saveToLS('categories', categories);
+    console.log(categories);
 }
 
 //add a new joke
@@ -20,7 +19,10 @@ export function addJoke(catId) {
     const joke = new Joke();
     joke.categoryId = catId;
     joke.jokeText = qs('#addJokeInp').value;
-    getSavePush(jokes, 'jokes', joke);
+    let jokes = [];
+    jokes = getFromLS('jokes');
+    jokes.push(joke);
+    saveToLS('jokes', jokes);
     console.log(jokes);
 }
 
@@ -34,7 +36,7 @@ export function displayCategories() {
             (category) => {
                 qs('#catContainerId').innerHTML +=
                     `<div class="flexOnIt">
-                        <div class="button" id="${category.catId}">
+                        <div class="button" data-id="${category.catId}">
                            ${category.catName}
                            <span class="spanMessage"></span>
                         </div>
@@ -73,9 +75,9 @@ export function displayCategoriesAddMode() {
             (category) => {
                 qs('#catContainerAddMode').innerHTML +=
                 `<div class="flexOnIt">
-                    <div class="button flexOnIt" id="${category.catId}">
+                    <div class="button flexOnIt" data-id="${category.catId}">
                         <span></span>
-                        <span> ${category.catName}</span>
+                        ${category.catName}
                         <span class="spanMessage"></span>
                     </div>
                     <div>
@@ -86,9 +88,14 @@ export function displayCategoriesAddMode() {
 
         //delete category
         let cats = document.querySelectorAll('img[src*="del"]');
-        console.log(cats);
         cats.forEach((cat) => {
             cat.addEventListener('click', deleteCategory);
+        });
+
+        //store category id on LS
+        cats = document.querySelectorAll('div.button');
+        cats.forEach((cat) => {
+            cat.addEventListener('click', storeCatIdOnLS);
         });
     }
 }
@@ -111,14 +118,23 @@ function deleteCategory(e) {
 }
 
 //go to jokes on category (joke.html)
-export function createJokeOnCatArray(e) {
+function createJokeOnCatArray(e) {
     let categId = e.target.getAttribute('data-id');
     console.log(categId);
     let jokes = [];
     jokes = getFromLS('jokes');
-    removeFromLS('jokesOnCategory');
     let jokesOnCat = [];
     jokesOnCat = jokes.filter((jokeOnCat) => jokeOnCat.categoryId == categId);
+    removeFromLS('jokesOnCategory');
     saveToLS('jokesOnCategory', jokesOnCat);
     window.location.href="joke.html";
+}
+
+//store cat id on LS
+function storeCatIdOnLS(e) {
+    removeFromLS('categoryId');
+    let catId = e.target.getAttribute('data-id');
+    saveToLS('categoryId', catId);
+    console.log(catId);
+    window.location.href="addNewJoke.html";
 }

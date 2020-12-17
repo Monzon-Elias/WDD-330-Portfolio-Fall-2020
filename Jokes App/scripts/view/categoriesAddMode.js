@@ -12,8 +12,9 @@ import { qs } from './utilities.js';
         categories = [];
         saveToLS('categories', categories);
     } else displayCategoriesAddMode();
+
     if (categories.length < 1) qs('.emptyArray').innerHTML = 'No jokes in memory =('; 
-    if (jokes === null) {
-        jokes = [];
-        saveToLS('jokes', jokes);
-    }
+    // if (jokes === null) {
+    //     jokes = [];
+    //     saveToLS('jokes', jokes);
+    // }

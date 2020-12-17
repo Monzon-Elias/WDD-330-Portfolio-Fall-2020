@@ -4,7 +4,7 @@ import { getFromLS, saveToLS } from '../controller/LS.js';
 import { qs } from './utilities.js';
 
     //getting lists from the LS
-    let jokes = getFromLS('jokes');
+    //let jokes = getFromLS('jokes');
     //let jokesOnCategory = getFromLS('jokesOnCategory');
     let categories = getFromLS('categories');
     console.log(categories);
