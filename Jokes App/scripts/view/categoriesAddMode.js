@@ -1,5 +1,6 @@
 import { displayCategoriesAddMode } from '../controller/controller.js';
 import { getFromLS, saveToLS } from '../controller/LS.js';
+import { qs } from './utilities.js';
 
     //getting lists from the LS
     let jokes = getFromLS('jokes');
@@ -11,9 +12,8 @@ import { getFromLS, saveToLS } from '../controller/LS.js';
         categories = [];
         saveToLS('categories', categories);
     } else displayCategoriesAddMode();
-    
+    if (categories.length < 1) qs('.emptyArray').innerHTML = 'No jokes in memory =('; 
     if (jokes === null) {
         jokes = [];
         saveToLS('jokes', jokes);
     }
-

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jokes App Joke</title>
-    <script src="../scripts/controller/main.js" type="module" defer></script>
+    <script src="../scripts/view/joke.js" type="module" defer></script>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/otherPagesHeaderStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -27,10 +27,9 @@
 
         <main>
             <div class="spacer"></div>
-            <div id="joke">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ut, nulla obcaecati tenetur sequi excepturi provident quidem fugit doloribus quisquam,
-                    impedit dolore illo, distinctio earum alias consequatur minima! Dolor, doloribus quae?</p>
+            <div>
+                <span id="goBack"></span>
+                <p id="joke"></p> 
                 <div id="prevNext">
                     <img src="images/skip_previous-24px.svg" alt="previous button">
                     <img src="images/skip_next-24px.svg" alt="next button">

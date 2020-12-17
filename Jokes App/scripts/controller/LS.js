@@ -6,3 +6,6 @@ export function saveToLS(key, data) {
 export function getFromLS(key) {
     return JSON.parse(localStorage.getItem(key));
 }
+export function removeFromLS(key) {
+    return localStorage.removeItem(key);
+}

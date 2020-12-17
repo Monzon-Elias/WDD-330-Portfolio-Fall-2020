@@ -6,7 +6,7 @@ body{
 }
 
 .container {
-    background-color: antiquewhite;
+    background-color: rgb(250, 234, 214);
 }
 
 header {
@@ -64,8 +64,20 @@ main .spacer {
     outline: none;
     margin-bottom: 1rem;
 }
-
-main input { 
+.button:hover {
+    box-shadow: 1px 4px 10px;
+}
+div.button {
+    width: 100%;
+}
+.flexOnIt {
+    display: flex;
+    justify-content: space-between;
+}
+/* a {
+    text-decoration: none;
+} */
+/* main input { 
     margin-bottom: 1rem;
     border-radius: 3rem;
 }
@@ -79,7 +91,7 @@ main a:focus, main form input[type='submit']:focus {
     transition: .1s;
     transform: scale(0.99);
     outline-style: none;
-}
+} */
 
 .submit {
     background: #6DDF94;  
@@ -90,16 +102,21 @@ main a:focus, main form input[type='submit']:focus {
     margin: 0;
     padding: 1rem;
 }
+.spanMessage {
+    font-size: medium;
+    color: #752c0a;
+}
 .catContainer a {
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
 }
-
-.delete:hover {
-    cursor: pointer;
-    box-shadow: 1px 4px 10px;
-    border-radius: 1rem;
+.delete {
+    margin-top: .5rem;
     background-color: rgb(240, 71, 105);
+}
+.delete:hover {
+    box-shadow: 1px 4px 10px;
+    border-radius: 2rem;
 }
 /*End Categories page*/
 

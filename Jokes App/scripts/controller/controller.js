@@ -1,7 +1,7 @@
 import { qs } from '../view/utilities.js'
 import Joke from '../model/Joke.js'
 import Category from '../model/Category.js';
-import { getFromLS, saveToLS } from '../controller/LS.js';
+import { getFromLS, saveToLS, removeFromLS } from '../controller/LS.js';
 
 //add a new Joke's category
 export function addJokeCat() {
@@ -33,18 +33,30 @@ export function displayCategories() {
         categories.forEach(
             (category) => {
                 qs('#catContainerId').innerHTML +=
-                    `<a href="#" id="${category.catId}" class="button">
-                        <span></span>
-                        ${category.catName}
-                        <img class="delete" data-id='${category.catId}' src='images/delete-24px.svg'>
-                    </a>`;
+                    `<div class="flexOnIt">
+                        <div class="button" id="${category.catId}">
+                           ${category.catName}
+                           <span class="spanMessage"></span>
+                        </div>
+                        <div>
+                            <img class="delete button" data-id='${category.catId}' src='images/delete-24px.svg'>
+                        </div>
+                    </div>`;
             });
-            
+
         //delete category
         let cats = document.querySelectorAll('img[src*="del"]');
         console.log(cats);
         cats.forEach((cat) => {
             cat.addEventListener('click', deleteCategory);
+
+        });
+
+        //go to jokes inside category
+        cats = document.querySelectorAll('div.button');
+        console.log(cats);
+        cats.forEach((cat) => {
+            cat.addEventListener('click', createJokeOnCatArray);
         });
     }
 }
@@ -56,18 +68,33 @@ export function displayCategoriesAddMode() {
         let categories = [];
         categories = getFromLS('categories');
         qs('#catContainerAddMode').innerHTML =
-            `<a href="addNewCategory.html" class="button submit">
-                New Joke Category?</a>`;
+            `<a href="addNewCategory.html" class="button submit">New Joke Category?</a>`;
         categories.forEach(
             (category) => {
                 qs('#catContainerAddMode').innerHTML +=
-                    `<a href="joke.html" data-id="${category.catId}" class="button">${category.catName}</a>`;
+                `<div class="flexOnIt">
+                    <div class="button flexOnIt" id="${category.catId}">
+                        <span></span>
+                        <span> ${category.catName}</span>
+                        <span class="spanMessage"></span>
+                    </div>
+                    <div>
+                        <img class="delete button" data-id='${category.catId}' src='images/delete-24px.svg'>
+                    </div>
+                </div>`;
             });
+
+        //delete category
+        let cats = document.querySelectorAll('img[src*="del"]');
+        console.log(cats);
+        cats.forEach((cat) => {
+            cat.addEventListener('click', deleteCategory);
+        });
     }
 }
 
 //delete category item
-export function deleteCategory(e) {
+function deleteCategory(e) {
     let categId = e.target.getAttribute('data-id');
     console.log(categId);
     let categories = [];
@@ -80,4 +107,18 @@ export function deleteCategory(e) {
     saveToLS('categories', categories);
     //list the budget items
     displayCategories();
+    location.reload();
+}
+
+//go to jokes on category (joke.html)
+export function createJokeOnCatArray(e) {
+    let categId = e.target.getAttribute('data-id');
+    console.log(categId);
+    let jokes = [];
+    jokes = getFromLS('jokes');
+    removeFromLS('jokesOnCategory');
+    let jokesOnCat = [];
+    jokesOnCat = jokes.filter((jokeOnCat) => jokeOnCat.categoryId == categId);
+    saveToLS('jokesOnCategory', jokesOnCat);
+    window.location.href="joke.html";
 }

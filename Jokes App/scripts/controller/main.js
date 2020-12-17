@@ -9,3 +9,5 @@ qs('#addCatBtn').addEventListener('click', () => {
     window.location.href="categories.html";
 });
 }
+
+//add joke by category
