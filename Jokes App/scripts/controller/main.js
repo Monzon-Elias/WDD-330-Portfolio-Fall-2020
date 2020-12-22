@@ -7,7 +7,7 @@ if (qs('#addCatBtn')) {
     qs('#addCatBtn').addEventListener('click', () => {
         addJokeCat();
         if (qs('#addCatInp')) clearInputs('#addCatInp');
-        window.location.href = "categories.html";
+        window.location.href = "categoriesAddMode.html";
     });
 }
 

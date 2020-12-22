@@ -19,7 +19,7 @@ if (jokesOnCat.length < 1) {
     qs('img[src*="skip_prev"]').style.cursor = "not-allowed";
 }
 else {
-    qs('#joke').innerHTML = jokesOnCat[0].jokeText;
+    qs('#joke').innerHTML = jokesOnCat[jokesOnCat.length - 1].jokeText;
     //qs('#jokesOnCat').innerHTML = `${jokesOnCat.length - 1} jokes in "${thisCat.catName}"`;
 }
 
@@ -52,5 +52,5 @@ qs('img[src*="skip_next"]').addEventListener('click', () => {
     qs('#p').innerHTML = `${i}`;
 });
 
-qs('#p').innerHTML = `${i}`;
-qs('#n').innerHTML = `${jokesOnCat.length - 1}`;
+qs('#p').innerHTML = `${jokesOnCat.length - 1}`;
+qs('#n').innerHTML = `${i}`;

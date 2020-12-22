@@ -71,7 +71,7 @@ export function displayCategoriesAddMode() {
         let categories = [];
         categories = getFromLS('categories');
         qs('#catContainerAddMode').innerHTML =
-            `<a href="addNewCategory.html" class="button submit">New Joke Category?</a>`;
+            `<a id="adNeCa" href="addNewCategory.html" class="button submit">New Joke Category?</a>`;
         categories.forEach(
             (category) => {
                 qs('#catContainerAddMode').innerHTML +=

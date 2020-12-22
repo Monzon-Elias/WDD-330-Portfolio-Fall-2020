@@ -121,10 +121,13 @@ main a:focus, main form input[type='submit']:focus {
     box-shadow: 1px 4px 10px;
     border-radius: 2rem;
 }
+.emptyArray {
+    margin: 0;
+}
 /*End Categories page*/
 
 /*Joke box page*/
-#joke {
+.joke {
     display: flex;
     flex-direction: column;
     border: .5rem solid lightseagreen;
@@ -144,6 +147,9 @@ main a:focus, main form input[type='submit']:focus {
 #prevNext img {
     border-radius: .3rem;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.25);
+}
+#n, #p{
+    margin-left: -20%;
 }
 /*End Joke box page*/
 footer div img{
