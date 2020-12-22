@@ -51,14 +51,15 @@ export function displayCategories() {
         console.log(cats);
         cats.forEach((cat) => {
             cat.addEventListener('click', deleteCategory);
-
         });
 
-        //go to jokes inside category
+        //store category id on LS
         cats = document.querySelectorAll('div.button');
-        console.log(cats);
         cats.forEach((cat) => {
-            cat.addEventListener('click', createJokeOnCatArray);
+            cat.addEventListener('click', (e) => { 
+                storeCatIdOnLS(e);
+                window.location.href="joke.html";
+            });
         });
     }
 }
@@ -95,7 +96,10 @@ export function displayCategoriesAddMode() {
         //store category id on LS
         cats = document.querySelectorAll('div.button');
         cats.forEach((cat) => {
-            cat.addEventListener('click', storeCatIdOnLS);
+            cat.addEventListener('click', (e) => { 
+                storeCatIdOnLS(e);
+                window.location.href="addNewJoke.html";
+            });
         });
     }
 }
@@ -117,18 +121,18 @@ function deleteCategory(e) {
     location.reload();
 }
 
-//go to jokes on category (joke.html)
-function createJokeOnCatArray(e) {
-    let categId = e.target.getAttribute('data-id');
-    console.log(categId);
-    let jokes = [];
-    jokes = getFromLS('jokes');
-    let jokesOnCat = [];
-    jokesOnCat = jokes.filter((jokeOnCat) => jokeOnCat.categoryId == categId);
-    removeFromLS('jokesOnCategory');
-    saveToLS('jokesOnCategory', jokesOnCat);
-    window.location.href="joke.html";
-}
+//store filtered jokes by cat on LS & go to joke.html
+// export function createJokeOnCatArray(e) {
+//     let categId = e.target.getAttribute('data-id');
+//     console.log(categId);
+//     let jokes = [];
+//     jokes = getFromLS('jokes');
+//     let jokesOnCat = [];
+//     jokesOnCat = jokes.filter((jokeOnCat) => jokeOnCat.categoryId == categId);
+//     removeFromLS('jokesOnCategory');
+//     saveToLS('jokesOnCategory', jokesOnCat);
+//     window.location.href="joke.html";
+// }
 
 //store cat id on LS
 function storeCatIdOnLS(e) {
@@ -136,5 +140,4 @@ function storeCatIdOnLS(e) {
     let catId = e.target.getAttribute('data-id');
     saveToLS('categoryId', catId);
     console.log(catId);
-    window.location.href="addNewJoke.html";
 }
