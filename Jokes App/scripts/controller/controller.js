@@ -106,7 +106,7 @@ export function displayCategoriesAddMode() {
 
 //delete category item
 function deleteCategory(e) {
-    let categId = e.target.getAttribute('data-id');
+    let categId = e.target.getAttribute('data-id'); 
     console.log(categId);
     let categories = [];
     categories = getFromLS('categories');

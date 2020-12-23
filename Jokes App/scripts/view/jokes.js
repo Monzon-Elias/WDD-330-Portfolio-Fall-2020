@@ -20,11 +20,11 @@ if (jokesOnCat.length < 1) {
 }
 else {
     qs('#joke').innerHTML = jokesOnCat[jokesOnCat.length - 1].jokeText;
-    //qs('#jokesOnCat').innerHTML = `${jokesOnCat.length - 1} jokes in "${thisCat.catName}"`;
+    qs('#goBack').innerHTML = '<a href="categoriesAddMode.html">go add more!</a>';
 }
 
 //next and previous buttons
-let i = 0;
+let i = jokesOnCat.length - 1;
 
 qs('img[src*="skip_prev"]').addEventListener('click', () => {
     console.log('it works');
@@ -53,4 +53,4 @@ qs('img[src*="skip_next"]').addEventListener('click', () => {
 });
 
 qs('#p').innerHTML = `${jokesOnCat.length - 1}`;
-qs('#n').innerHTML = `${i}`;
+qs('#n').innerHTML = `0`;
