@@ -16,9 +16,4 @@ import { qs } from './utilities.js';
     } else displayCategories();
 
     //messages to the user
-    if (categories.length < 1) qs('.emptyArray').innerHTML = 'No jokes in memory =(';  
-
-    // if (jokes === null) {
-    //     jokes = [];
-    //     saveToLS('jokes', jokes);
-    // }
+    if (categories.length < 0) qs('.emptyArray').innerHTML = 'No jokes in memory =(';  
