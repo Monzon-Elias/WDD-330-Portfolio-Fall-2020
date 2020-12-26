@@ -16,4 +16,7 @@ import { qs } from './utilities.js';
     } else displayCategories();
 
     //messages to the user
-    if (categories.length < 0) qs('.emptyArray').innerHTML = 'No jokes in memory =(';  
+    if (categories.length < 1) {
+        qs('.emptyArray').innerHTML = 'No jokes in memory =('; 
+        qs('.goBack').innerHTML = '<a href="categoriesAddMode.html">go add some!</a>';
+    } 

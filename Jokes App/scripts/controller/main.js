@@ -17,6 +17,6 @@ if (qs('#addJokeBtn')) {
         let catId = getFromLS('categoryId');
         addJoke(catId);
         if (qs('#addJokeInp')) clearInputs('#addJokeInp');
-        window.location.href = "joke.html";
+        location.href = "joke.html";
     });
 }
