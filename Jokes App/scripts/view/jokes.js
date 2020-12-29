@@ -1,15 +1,15 @@
 import { qs } from './utilities.js'
 import { getFromLS } from '../controller/LS.js'
-import { deleteJoke } from '../controller/controller.js';
+import { deleteJoke, prevJokeButton, nextJokeButton } from '../controller/controller.js';
 
 let jokes = getFromLS('jokes');
 let catId = getFromLS('categoryId');
 let cats = getFromLS('categories');
-console.log(catId);
+console.log('cat id: ' + catId);
 
 //category name
 let thisCat = cats.find((cat) => cat.catId == catId);
-console.log(thisCat.catName);
+console.log('cat name: ' + thisCat.catName);
 //jokes in this category
 let jokesOnCat = jokes.filter((jokeOnCat) => jokeOnCat.categoryId == catId);
 console.log(jokesOnCat);
@@ -32,64 +32,19 @@ else {
         `<a href="addNewJoke.html">add more jokes on <strong>${thisCat.catName}</strong>!</a>`;
 }
 
-//next and previous buttons
 let i = jokesOnCat.length - 1;
-console.log(i);
-qs('img[src*="skip_prev"]').addEventListener('click', () => {
-    console.log('it works');
-    if (i > 0) {
-        qs('#joke').innerHTML =
-            `<div class="flexOnIt" data-id="${jokesOnCat[--i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[--i].jokeText}</div>`;
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
-    } else {
-        i = jokesOnCat.length; //one step beyond elements on the array
-        qs('#joke').innerHTML =
-            `<div class="flexOnIt" data-id="${jokesOnCat[--i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[--i].jokeText}</div>`;
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
-    }
-    
     console.log(i);
-    qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
-    qs('#p').innerHTML = `${i}`;
-});
 
-qs('img[src*="skip_next"]').addEventListener('click', () => {
-    console.log('it works');
-    if (i < jokesOnCat.length - 1) {
-        qs('#joke').innerHTML = 
-            `<div class="flexOnIt" data-id="${jokesOnCat[++i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[++i].jokeText}</div>`;
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
-    } else {
-        i = -1; //one step beyond elements on the array
-        qs('#joke').innerHTML = 
-            `<div class="flexOnIt" data-id="${jokesOnCat[++i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[++i].jokeText}</div>`;
+//next joke button
+nextJokeButton(jokesOnCat, i);
 
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
-    }
-    console.log(i);
-    qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
-    qs('#p').innerHTML = `${i}`;
-
-});
+//previous joke button 
+prevJokeButton(jokesOnCat, i);
 
 //delete joke feature
-//qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
+if(jokesOnCat.length > 0)
+qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
+
 //default display little numbers next to next & prev buttons
 qs('#p').innerHTML = `${jokesOnCat.length - 1}`;
 qs('#n').innerHTML = `0`;

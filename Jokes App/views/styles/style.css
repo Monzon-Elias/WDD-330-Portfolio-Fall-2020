@@ -121,6 +121,15 @@ main a:focus, main form input[type='submit']:focus {
     box-shadow: 1px 4px 10px;
     border-radius: 2rem;
 }
+ #joke.joke {
+    margin: .5rem 0;
+    padding: .5rem .5rem;
+}
+#joke.joke img:hover {
+    cursor: pointer;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 20px rgb(252, 1, 1);
+}
 .emptyArray {
     margin: 0;
 }
@@ -151,6 +160,17 @@ main a:focus, main form input[type='submit']:focus {
 #n, #p{
     margin-left: -20%;
 }
+/*End Joke box page*/
+.lastCatVisited {
+    animation: blinking .4s;
+    box-sizing: content-box;
+}
+@keyframes blinking {
+    0% { border: 2px solid rgba(38, 110, 176, 1); }
+    25% { border: 2px solid rgb(252, 3, 3); }
+    50% { border: 2px solid rgba(38, 110, 176, 1); }
+    100% { border: 2px solid rgba(252, 3, 3); }
+  }
 /*End Joke box page*/
 footer div img{
     width: 100%;

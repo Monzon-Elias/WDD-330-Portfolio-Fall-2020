@@ -7,3 +7,8 @@ export function qs(selector) {
 export function clearInputs(input) {
     qs(input).value = '';
 }
+
+//last visited category effect
+export function lastCatVisitedEffect(catId) {
+    qs(`.button[data-id="${catId}"]`).classList.add("lastCatVisited");
+}
