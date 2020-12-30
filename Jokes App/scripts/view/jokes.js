@@ -1,6 +1,7 @@
 import { qs } from './utilities.js'
 import { getFromLS } from '../controller/LS.js'
-import { deleteJoke, prevJokeButton, nextJokeButton } from '../controller/controller.js';
+import { deleteJoke } from '../controller/controller.js';
+import CircularListWithIndex from '../model/CircularListWithIndex.js';
 
 let jokes = getFromLS('jokes');
 let catId = getFromLS('categoryId');
@@ -33,18 +34,51 @@ else {
 }
 
 let i = jokesOnCat.length - 1;
-    console.log(i);
+console.log(i);
 
+let cl = new CircularListWithIndex(jokesOnCat, i);
 //next joke button
-nextJokeButton(jokesOnCat, i);
+qs('img[src*="skip_next"]').addEventListener('click', () => {
+    console.log('it works');
+    let index = cl.moveIndexNext();
+    qs('#joke').innerHTML =
+        `<div class="flexOnIt" data-id="${cl.getCurrentItem().jokeId}"> 
+            ${cl.getCurrentItem().jokeText}
+            <img data-id="${cl.getCurrentItem().jokeId}" src='images/delete-24px.svg'>
+        </div>`;
+        qs('#n').innerHTML = `${(jokesOnCat.length - 1) - index}`;
+        qs('#p').innerHTML = `${index}`;
+        
+        //delete joke feature
+        qs('#joke img').addEventListener('click', (e) => {
+            deleteJoke(e);
+            console.log(e);
+        });
+});
 
 //previous joke button 
-prevJokeButton(jokesOnCat, i);
+qs('img[src*="skip_prev"]').addEventListener('click', () => {
+    console.log('it works');
+    let index = cl.moveIndexPrevious();
+    qs('#joke').innerHTML =
+        `<div class="flexOnIt" data-id="${cl.getCurrentItem().jokeId}"> 
+            ${cl.getCurrentItem().jokeText}
+            <img data-id="${cl.getCurrentItem().jokeId}" src='images/delete-24px.svg'>
+        </div>`;
+        qs('#n').innerHTML = `${(jokesOnCat.length - 1) - index}`;
+        qs('#p').innerHTML = `${index}`;
+
+        //delete joke feature
+        qs('#joke img').addEventListener('click', (e) => {
+            deleteJoke(e);
+            console.log(e);
+        });
+});
 
 //delete joke feature
-if(jokesOnCat.length > 0)
-qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
+if (jokesOnCat.length > 0)
+    qs('#joke img').addEventListener('click', (e) => { deleteJoke(e); });
 
 //default display little numbers next to next & prev buttons
 qs('#p').innerHTML = `${jokesOnCat.length - 1}`;
-qs('#n').innerHTML = `0`;
+qs('#n').innerHTML = 0;

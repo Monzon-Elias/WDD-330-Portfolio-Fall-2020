@@ -20,4 +20,5 @@ import { qs, lastCatVisitedEffect } from './utilities.js';
         qs('.goBack').innerHTML = '<a href="categoriesAddMode.html">go add some!</a>';
     } 
 
+    //flashing effect on last visited category
     lastCatVisitedEffect(catId);

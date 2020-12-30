@@ -162,7 +162,7 @@ main a:focus, main form input[type='submit']:focus {
 }
 /*End Joke box page*/
 .lastCatVisited {
-    animation: blinking .4s;
+    animation: blinking .5s;
     box-sizing: content-box;
 }
 @keyframes blinking {

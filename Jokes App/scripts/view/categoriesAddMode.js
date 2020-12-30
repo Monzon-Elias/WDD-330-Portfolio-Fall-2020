@@ -1,9 +1,10 @@
 import { displayCategoriesAddMode } from '../controller/controller.js';
 import { getFromLS, saveToLS } from '../controller/LS.js';
-import { qs } from './utilities.js';
+import { qs, lastCatVisitedEffect } from './utilities.js';
+
 
     //getting lists from the LS
-    //let jokes = getFromLS('jokes');
+    let catId = getFromLS('categoryId');
     let categories = getFromLS('categories');
     console.log(categories);
 
@@ -14,7 +15,6 @@ import { qs } from './utilities.js';
     } else displayCategoriesAddMode();
 
     if (categories.length < 1) qs('.emptyArray').innerHTML = 'No jokes in memory =('; 
-    // if (jokes === null) {
-    //     jokes = [];
-    //     saveToLS('jokes', jokes);
-    // }
+    
+    //flashing effect on last visited category
+    lastCatVisitedEffect(catId);

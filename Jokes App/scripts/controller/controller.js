@@ -111,7 +111,7 @@ export function displayCategoriesAddMode() {
         cats = document.querySelectorAll('div.button');
         cats.forEach((cat) => {
             cat.addEventListener('click', (e) => {
-                storeCatIdOnLS;
+                storeCatIdOnLS(e);
                 location.href = "addNewJoke.html";
             });
         });
@@ -171,70 +171,67 @@ function storeCatIdOnLS(e) {
     removeFromLS('categoryId');
     let catId = e.target.getAttribute('data-id');
     saveToLS('categoryId', catId);
-    //console.log('cat id: ' + catId);
+    console.log('cat id: ' + catId);
 }
 
-//previous joke button on jokes.html
-export function prevJokeButton(jokesOnCat, i) {
-    qs('img[src*="skip_next"]').addEventListener('click', () => {
-        console.log('it works');
-        if (i < jokesOnCat.length - 1) {
-            qs('#joke').innerHTML =
-                `<div class="flexOnIt" data-id="${jokesOnCat[++i].jokeId}"> 
-                    ${jokesOnCat[i].jokeText}
-                    <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
-                </div>`;
-        } else {
-            i = -1; //one step beyond elements on the array
-            qs('#joke').innerHTML =
-                `<div class="flexOnIt" data-id="${jokesOnCat[++i].jokeId}"> 
-                    ${jokesOnCat[i].jokeText}
-                    <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
-                </div>`;
-        }
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => {
-            deleteJoke(e);
-            console.log(e);
-        });
 
-        console.log(i);
-        qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
-        qs('#p').innerHTML = `${i}`;
-    });
+// let i = 0;
+// //previous joke button on jokes.html
+// export function nextJokeButton(jokesOnCat) {
+//     i = ++i;
+//     console.log(i);
+//         if (i < jokesOnCat.length - 1) {
+//             qs('#joke').innerHTML =
+//                 `<div class="flexOnIt" data-id="${jokesOnCat[(jokesOnCat.length - 1) + i].jokeId}"> 
+//                     ${jokesOnCat[(jokesOnCat.length - 1) + i].jokeText}
+//                     <img data-id="${jokesOnCat[(jokesOnCat.length - 1) + i].jokeId}" src='images/delete-24px.svg'>
+//                 </div>`;
+//         } else {
+//             i = 0; //one step beyond elements on the array
+//             qs('#joke').innerHTML =
+//                 `<div class="flexOnIt" data-id="${jokesOnCat[(jokesOnCat.length - 1) + i].jokeId}"> 
+//                     ${jokesOnCat[(jokesOnCat.length - 1) + i].jokeText}
+//                     <img data-id="${jokesOnCat[(jokesOnCat.length - 1) + i].jokeId}" src='images/delete-24px.svg'>
+//                 </div>`;
+//         }
+//         //delete joke feature
+//         qs('#joke img').addEventListener('click', (e) => {
+//             deleteJoke(e);
+//             console.log(e);
+//         });
 
-}
+//         console.log(i);
+//         qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
+//         qs('#p').innerHTML = `${i}`;
+//     }
 
-//next joke button
-export function nextJokeButton(jokesOnCat, i) {
-    qs('img[src*="skip_prev"]').addEventListener('click', () => {
-        console.log('it works');
-        if (i > 0) {
-            qs('#joke').innerHTML =
-                `<div class="flexOnIt" data-id="${jokesOnCat[--i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[--i].jokeText}</div>`;
-        } else {
-            i = jokesOnCat.length; //one step beyond elements on the array
-            qs('#joke').innerHTML =
-                `<div class="flexOnIt" data-id="${jokesOnCat[--i].jokeId}"> 
-                ${jokesOnCat[i].jokeText}
-                <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
-            </div>`;//`<div data-id="${jokesOnCat.jokeId}"> ${jokesOnCat[--i].jokeText}</div>`;
-        }
-        //delete joke feature
-        qs('#joke img').addEventListener('click', (e) => {
-            deleteJoke(e);
-            console.log(e);
-        });
+// //next joke button
+// export function prevJokeButton(jokesOnCat) {
+    
+//         if (i > 0) {
+//             qs('#joke').innerHTML =
+//                 `<div class="flexOnIt" data-id="${jokesOnCat[i].jokeId}"> 
+//                     ${jokesOnCat[i].jokeText}
+//                     <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
+//                 </div>`;
+//         } else {
+//             i = jokesOnCat.length; //one step beyond elements on the array
+//             qs('#joke').innerHTML =
+//                 `<div class="flexOnIt" data-id="${jokesOnCat[i].jokeId}"> 
+//                     ${jokesOnCat[i].jokeText}
+//                     <img data-id="${jokesOnCat[i].jokeId}" src='images/delete-24px.svg'>
+//                 </div>`;
+//         }
+//         //delete joke feature
+//         qs('#joke img').addEventListener('click', (e) => {
+//             deleteJoke(e);
+//             console.log(e);
+//         });
 
-        console.log(i);
-        qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
-        qs('#p').innerHTML = `${i}`;
-    });
-
-}
+//         console.log(i);
+//         qs('#n').innerHTML = `${(jokesOnCat.length - 1) - i}`;
+//         qs('#p').innerHTML = `${i}`;
+//     }
 
 
 
